@@ -26,8 +26,12 @@ app.get("/", (req,res) =>{
 });
 app.post("/add-movie", movieController.create);
 app.get("/add-movie", (req,res) =>{
-    res.render("add-movie");
+    res.render("add-movie", {errors: {} });    
 });
+app.get("/allmovies/add-movie", (req,res) =>{
+    res.render("add-movie", {errors: {} });    
+});
+
 app.get("/allmovies", movieController.list);
 app.get("/allmovies/delete/:id", movieController.delete);
 

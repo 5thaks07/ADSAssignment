@@ -7,6 +7,13 @@
     <body>
         <h1>Welcome to HitTastic! - An online music site</h1>
         
+        <% if(message) {   %>
+
+         <div>
+            <%= message  %>
+        </div>
+           <% } %>
+
         <table>
             <thead>
              <tr>
@@ -37,7 +44,7 @@
 
         </table>
 
-
+        <a href="add-movie" >ADD A MOVIE</a>
         
         
     </body>
