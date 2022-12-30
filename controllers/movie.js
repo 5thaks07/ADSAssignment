@@ -10,3 +10,21 @@ exports.create = async (req, res) => {
         return res.status(400).send({message: JSON.parse(e)});
     }
 };
+exports.list = async (req, res) => {
+    try {
+          const movies = await Movie.find({});
+          console.log(movies);
+          res.render("allmovies", {movies: movies});
+    } catch (e)  {
+           res.status(404).send({message: "could not find movie"}); 
+    }
+};
+exports.delete = async (req,res) => {
+    const id = req.params.id;
+    try {
+         await Movie.findByIdAndRemove(id);
+          res.redirect("/allmovies");
+    } catch (e)  {
+           res.status(404).send({message: "could not delete movie"}); 
+    }
+};

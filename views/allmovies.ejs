@@ -6,9 +6,15 @@
     </head>
     <body>
         <h1>Welcome to HitTastic! - An online music site</h1>
-       
-        <a href="add-movie" >ADD MOVIE</a>
-        <a href="allmovies" >All MOVIEs</a>
+        
+        <%
+         movies.forEach(movie =>{ 
+         %>
+            <li> <%= movie.title %> </li>
+        
+         <%
+         });
+          %>
         
     </body>
 </html>

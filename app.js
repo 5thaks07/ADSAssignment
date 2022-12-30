@@ -28,11 +28,10 @@ app.post("/add-movie", movieController.create);
 app.get("/add-movie", (req,res) =>{
     res.render("add-movie");
 });
+app.get("/allmovies", movieController.list);
 
 
 
 app.listen(2000, () =>{
-    console.log(
-         'http://localhost:2000'
-    );
+    console.log('http://localhost:2000');
 });
