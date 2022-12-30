@@ -13,7 +13,6 @@ exports.create = async (req, res) => {
 exports.list = async (req, res) => {
     try {
           const movies = await Movie.find({});
-          console.log(movies);
           res.render("allmovies", {movies: movies});
     } catch (e)  {
            res.status(404).send({message: "could not find movie"}); 
@@ -21,6 +20,7 @@ exports.list = async (req, res) => {
 };
 exports.delete = async (req,res) => {
     const id = req.params.id;
+    console.log(id);
     try {
          await Movie.findByIdAndRemove(id);
           res.redirect("/allmovies");

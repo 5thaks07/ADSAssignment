@@ -29,6 +29,7 @@ app.get("/add-movie", (req,res) =>{
     res.render("add-movie");
 });
 app.get("/allmovies", movieController.list);
+app.get("/allmovies/delete/:id", movieController.delete);
 
 
 
