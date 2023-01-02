@@ -34,6 +34,8 @@ app.get("/allmovies/add-movie", (req,res) =>{
 
 app.get("/allmovies", movieController.list);
 app.get("/allmovies/delete/:id", movieController.delete);
+app.get("/allmovies/update/:id", movieController.edit);
+app.post("/allmovies/update/:id", movieController.update);
 
 
 

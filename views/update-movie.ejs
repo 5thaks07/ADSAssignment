@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Welcome to HitTastic! - An online music site</h1>
+       
+        <form method="post">
+        <input value="<%= movie.title %>" type="text" placeholder="Enter Title" name="title"><br>
+        <% if (errors['title']) { %>
+            <p style="color: red"><%= errors['title'].message %></p>
+            <% } %>
+        <input value="<%= movie.release_year %>" type="number" placeholder="Enter Year" name="ry"><br>
+        <% if (errors['release_year']) { %>
+            <p style="color: red"><%= errors['release_year'].message %></p>
+            <% } %>
+        <input value="<%= movie.score %>" type="number" placeholder="Enter Score" name="sc"><br>
+        <% if (errors['score']) { %>
+            <p style="color: red"><%= errors['score'].message %></p>
+            <% } %>
+        <button type="submit">SUBMIT</button>
+        
+        </form>  
+        
+        
+    </body>
+</html>
