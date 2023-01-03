@@ -1,50 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
+        <meta charset="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content="" />
+        <title>World Wines</title>
+    
+        <link
+          rel="canonical"
+          href="https://getbootstrap.com/docs/4.5/examples/album/"
+        />
+    
+        <!-- Bootstrap core CSS -->
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous"
+        />
+    
+        <link href="css/album.css" rel="stylesheet" />
+      </head>
     <body>
-        <h1>Welcome to HitTastic! - An online music site</h1>
-        
+        <%- include('header'); -%>
         <% if(message) {   %>
 
-         <div>
-            <%= message  %>
+            <div>
+               <%= message  %>
+           </div>
+              <% } %>
+    
+        <h1 class="text-justify">  Movies   </h1>
+        <div class="col-md-12 col-md-offset-2  justify-content-center">
+          <a role="button" class="btn btn-primary btn-xs" href="add-movie">Add a new Movie</a> 
+        
         </div>
-           <% } %>
-
-        <table>
+          
+          <div class="col-md-12 col-md-offset-2">
+          
+            <table class="table table-striped custab">
             <thead>
-             <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Release Year</th>
-                <th>Score</th>
-             </tr>
-            
-             <%
-         movies.forEach(movie =>{ 
-         %>
-           <tr>
-            <td> <%= movie.id %></td>
-            <td> <%= movie.title %> </td>
-            <td> <%= movie.release_year %> </td>
-            <td> <%= movie.score %> </td>
-           <td><a href="/allmovies/delete/<%= movie.id %>">Del</a>
-            <a href="/allmovies/update/<%= movie.id %>">Edit</a></td>
-
-            </tr>
-         <%
-         }); 
-          %>
-
-
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Release Year </th>
+                    
+        
+                </tr>
+                <%
+                movies.forEach(movie =>{ 
+                %>
+              
+                    <tr>
+                        <td> <%= movie.id %></td>
+                        <td> <%= movie.title %> </td>
+                        <td> <%= movie.release_year %> </td>
+                     <td> <%= movie.score %> </td>
+                    
+                        
+                        <td class="text-center"><a class='btn btn-info btn-xs' href="/allmovies/update/<%= movie.id %>" ><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+                          <a  href="/allmovies/delete/<%= movie.id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                         
+                    </tr>
+                    
+                <%
+                }); 
+                %>
+                 
+        
+        
+               
             </thead>
-
-        </table>
-
-        <a href="add-movie" >ADD A MOVIE</a>
+                  
+            </table>
+        
+             
+            </div>
+            
+        
+    
+    
+         
         
         
     </body>
