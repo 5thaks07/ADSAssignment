@@ -1,29 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <html lang="en">
     <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <meta name="description" content="" />
+      <title>World Wines</title>
+
+      <link
+        rel="canonical"
+        href="https://getbootstrap.com/docs/4.5/examples/album/"
+      />
+
+      <!-- Bootstrap core CSS -->
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous"
+      />
+
+      <link href="css/album.css" rel="stylesheet" />
     </head>
     <body>
-        <h1>Welcome to HitTastic! - An online music site</h1>
-       
-        <form action="/add-movie" method="post">
-        <input type="text" placeholder="Enter Title" name="title"><br>
-        <% if (errors['title']) { %>
-            <p style="color: red"><%= errors['title'].message %></p>
-            <% } %>
-        <input type="number" placeholder="Enter Year" name="ry"><br>
-        <% if (errors['release_year']) { %>
-            <p style="color: red"><%= errors['release_year'].message %></p>
-            <% } %>
-        <input type="number" placeholder="Enter Score" name="sc"><br>
-        <% if (errors['score']) { %>
-            <p style="color: red"><%= errors['score'].message %></p>
-            <% } %>
-        <button type="submit">SUBMIT</button>
-        
-        </form>
-        
-        
+      <%- include('header'); -%>
+      
+      
+      
+      <div class="container">
+        <h1 class="text-center">Add A New Movie</h1>
+        <div class="row justify-content-md-center">
+          <div class="col-">
+            <form method="POST" action="/add-movie">
+              <div class="form-group">
+                <label for="name">Movie Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  name="title"
+                  placeholder="Enter Title"
+                />
+                <% if (errors['title']) { %>
+                    <p style="color: red"><%= errors['title'].message %></p>
+                    <% } %> 
+                
+              </div>
+              <div class="form-group">
+                <label for="name">Release Year</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="ry"
+                  name="ry"
+                  placeholder="Enter Year"
+                />
+                <% if (errors['release_year']) { %>
+                    <p style="color: red"><%= errors['release_year'].message %></p>
+                    <% } %>
+                
+              </div>
+              <div class="form-group">
+                <label for="name">Score</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="ry"
+                  name="ry"
+                  placeholder="Enter Score"
+                />
+                <% if (errors['score']) { %>
+                    <p style="color: red"><%= errors['score'].message %></p>
+                    <% } %>
+                
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </body>
+  </html>
 </html>
