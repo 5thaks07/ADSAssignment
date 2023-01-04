@@ -22,11 +22,9 @@ app.use(bodyPaser.json());
 app.use(bodyPaser.urlencoded({extended: false}));
 
 app.get("/", (req,res) =>{
-    res.render("index");
-});
-app.get("/index2", (req,res) =>{
     res.render("index2");
 });
+
 app.post("/add-movie", movieController.create);
 app.get("/add-movie", (req,res) =>{
     res.render("add-movie", {errors: {} });    
