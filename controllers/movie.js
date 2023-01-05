@@ -11,6 +11,7 @@ exports.create = async (req, res) => {
     } catch (e) {
         if(e.errors){
             res.render("add-movie", { errors: e.errors });
+            return;
         }
         return res.status(400).send({ message: JSON.parse(e) });
     }
@@ -37,6 +38,7 @@ exports.edit = async (req, res) => {
     try {
           const movie = await Movie.findById(id);
           res.render("update-movie", { movie: movie, id: id, errors: {} });
+          
     } catch (e)  {
            res.status(404).send({ message: "could not find the movie" }); 
     }
@@ -44,12 +46,12 @@ exports.edit = async (req, res) => {
 exports.update = async (req, res) => {
       const id = req.params.id;
     try {
-        await Movie.updateOne({ _id: id }, req.body);
-        const movie = Movie.findById(id);
+        await Movie.updateOne({ _id: id }, { title: req.body.title, release_year: req.body.ry, score: req.body.sc });
          res.redirect(`/allmovies/?message= ${req.body.title} has been updated `);
     } catch (e) {
         if(e.errors){
             res.render("update-movie", { errors: e.errors });
+            return;
         }
         return res.status(400).send({ message: JSON.parse(e) });
     }

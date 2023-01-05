@@ -29,15 +29,15 @@
       <%- include('header'); -%>
       
       
-      
       <div class="container">
-        <h1 class="text-center">Update A New Movie</h1>
+        <h1 class="text-center">Update A Movie</h1>
         <div class="row justify-content-md-center">
           <div class="col-">
             <form method="POST">
               <div class="form-group">
                 <label for="name">Movie Title</label>
                 <input
+                value="<%= movie.title %>"
                   type="text"
                   class="form-control"
                   id="title"
@@ -52,6 +52,7 @@
               <div class="form-group">
                 <label for="name">Release Year</label>
                 <input
+                value="<%= movie.release_year %>"
                   type="number"
                   class="form-control"
                   id="ry"
@@ -66,10 +67,11 @@
               <div class="form-group">
                 <label for="name">Score</label>
                 <input
+                value="<%= movie.score %>"
                   type="number"
                   class="form-control"
-                  id="ry"
-                  name="ry"
+                  id="sc"
+                  name="sc"
                   placeholder="Enter Score"
                 />
                 <% if (errors['score']) { %>
