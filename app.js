@@ -2,11 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyPaser = require("body-parser");
+const path = require("path");
 
 const app = express();
 app.set("view engine","ejs");
 
 const movieController = require("./controllers/movie");
+const movieApiContoller = require("./controllers/api/movie");
 
 const { MONGODB_URI } = process.env;
 
@@ -18,6 +20,7 @@ mongoose.connection.on("error", (err) => {
   process.exit();
 });
 
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyPaser.json());
 app.use(bodyPaser.urlencoded({extended: false}));
 
@@ -32,6 +35,10 @@ app.get("/add-movie", (req,res) =>{
 app.get("/allmovies/add-movie", (req,res) =>{
     res.render("add-movie", {errors: {} });    
 });
+app.get("/search-movies", (req,res) =>{
+    res.render("search-movies");    
+});
+app.get("/api/search-movies", movieApiContoller.list);
 
 app.get("/allmovies", movieController.list);
 app.get("/allmovies/delete/:id", movieController.delete);
